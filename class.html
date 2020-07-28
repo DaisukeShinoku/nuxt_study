@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class</title>
+</head>
+<body>
+  <script>
+
+    // function MyObj(r,g,b) {
+    //   this.red = r;
+    //   this.green = g;
+    //   this.blue = b;
+
+    //   this.total = function(){
+    //     return this.red + this.green + this.blue;
+    //   }
+
+    //   this.getHex = function(){
+    //     return '#' + ('00' + this.red.toString(16)).substr(-2)
+    //       + ('00' + this.blue.toString(16)).substr(-2)
+    //       + ('00' + this.green.toString(16)).substr(-2);
+    //   }
+
+    //   this.getStartP = function(){
+    //     return '<p style = "background-color:' + this.getHex() +'">';
+    //   }
+
+    //   this.getEndP = function(){
+    //     return '</p>';
+    //   }
+
+    //   this.writeP = function(){
+    //     document.write(this.getStartP());
+    //     document.write(this.total());
+    //     document.write(this.getEndP());
+    //   }
+    // };
+
+    // let ob = new MyObj(255, 200, 200);
+    // ob.writeP();
+
+    // let ob2 = new MyObj(0, 100, 170);
+    // ob2.writeP();
+
+
+    class MyObj{
+      constructor(r, g, b){
+        this.red = r;
+        this.green = g;
+        this.blue = b;
+      }
+
+      get total(){
+        return this.red + this.green + this.blue;
+      }
+
+      get hex(){
+        return '#' + ('00' + this.red.toString(16)).substr(-2)
+          + ('00' + this.blue.toString(16)).substr(-2)
+          + ('00' + this.green.toString(16)).substr(-2);
+      }
+
+      get startP(){
+        return '<p style = "background-color:' + this.hex +'">';
+      }
+
+      get endP(){
+        return '</p>';
+      }
+
+      writeP(){
+        document.write(this.startP);
+        document.write(this.total);
+        document.write(this.endP);
+      }
+    };
+
+    let ob = new MyObj(255, 200, 200);
+    ob.writeP();
+
+    let ob2 = new MyObj(0, 100, 170);
+    ob2.writeP();
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My first Vue App</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <style>
+    table tr th{
+      font-size: 16pt;
+      color: white;
+      background-color: blue;
+      padding: 5px 15px;
+    }
+
+    table tr td{
+      font-size: 16pt;
+      color: gray;
+      border: 1px solid gray;
+    }
+
+    li{
+      font-size: 16pt;
+      color: grey
+    }
+  </style>
+
+  <h1>Vue.js</h1>
+  <div id="app">
+      <p>※データをテーブルを表示する</p>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>mail</th>
+          <th>tel</th>
+        </tr>
+        <tr v-for="(item, key) in items">
+          <td>{{ key }}</td>
+          <td>{{ item.mail }}</td>
+          <td>{{ item.tel }}</td>
+        </tr>
+      </table>
+  </div>
+
+  <script>
+
+    var data = {
+      items:{
+        Taro:{mail: 'taro@com', tel: '111'},
+        Hanako:{mail: 'hanako@com', tel: '222'},
+        Sachiko:{mail: 'sachiko@com', tel: '333'},
+        Jiro:{mail: 'jiro@com', tel: '444'},
+        Mami:{mail: 'mami@com', tel: '555'}
+      }
+    };
+
+    var app = new Vue({
+      el: '#app',
+      data: data
+    });
+  </script>
+</body>
+</html>

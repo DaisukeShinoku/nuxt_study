@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 例１
+    // let ob = { red:255, green:125, blue: 0}
+    // document.write(ob.red + ob.green + ob.blue )
+
+    // 例２
+    // let ob = {
+    //   red:255, green:125, blue:0,
+    //   total: function(){
+    //     return this.red + this.green + this.blue
+    //   }
+    // };
+    // document.write(ob.total());
+
+    // 例3
+    // let ob = {
+    //   red:255, green:125, blue:0,
+    //   total(){
+    //     return this.red + this.green + this.blue;
+    //   }
+    // };
+    // document.write(ob.total());
+
+
+    function MyObj(r,g,b) {
+      this.red = r;
+      this.green = g;
+      this.blue = b;
+
+      this.total = function(){
+        return this.red + this.green + this.blue;
+      }
+
+      this.getHex = function(){
+        return '#' + ('00' + this.red.toString(16)).substr(-2)
+          + ('00' + this.blue.toString(16)).substr(-2)
+          + ('00' + this.green.toString(16)).substr(-2);
+      }
+
+      this.getStartP = function(){
+        return '<p style = "background-color:' + this.getHex() +'">';
+      }
+
+      this.getEndP = function(){
+        return '</p>';
+      }
+
+      this.writeP = function(){
+        document.write(this.getStartP());
+        document.write(this.total());
+        document.write(this.getEndP());
+      }
+    };
+
+    let ob = new MyObj(255, 200, 200);
+    ob.writeP();
+
+    let ob2 = new MyObj(0, 100, 170);
+    ob2.writeP();
+  </script>
+</body>
+</html>

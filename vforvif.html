@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My first Vue App</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <style>
+    table tr th{
+      font-size: 16pt;
+      color: white;
+      background-color: blue;
+      padding: 5px 15px;
+    }
+
+    table tr td{
+      font-size: 16pt;
+      color: gray;
+      border: 1px solid gray;
+    }
+
+    li{
+      font-size: 16pt;
+      color: grey
+    }
+  </style>
+
+  <h1>Vue.js</h1>
+  <div id="app">
+      <p>※データをテーブルを表示する</p>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>name</th>
+          <th>mail</th>
+          <th>tel</th>
+        </tr>
+        <tr v-for="(item, index) in items" v-if="index % 2 == 0">
+          <td>{{ index }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.mail }}</td>
+          <td>{{ item.tel }}</td>
+        </tr>
+        <tr v-else>
+          <td>***</td>
+          <td>***非公開***</td>
+          <td>***非公開***</td>
+          <td>***非公開***</td>
+        </tr>
+      </table>
+  </div>
+
+  <script>
+
+    var data = {
+      items:[
+        {name: 'Taro', mail: 'taro@com', tel: '111'},
+        {name: 'Hanako', mail: 'hanako@com', tel: '222'},
+        {name: 'Sachiko', mail: 'sachiko@com', tel: '333'},
+        {name: 'Jiro', mail: 'jiro@com', tel: '444'},
+        {name: 'Mami', mail: 'mami@com', tel: '555'}
+      ]
+    };
+
+    var app = new Vue({
+      el: '#app',
+      data: data
+    });
+  </script>
+</body>
+</html>
